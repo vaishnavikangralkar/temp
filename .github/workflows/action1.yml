@@ -6,16 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: sleep 1m && echo test
+        run: sleep 3s && echo test
 
   build:
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
       - name: build
-        run: sleep 2m && echo build
+        run: sleep 5s && echo build
 
   deploy:
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - name: deploy
         run: echo deploy

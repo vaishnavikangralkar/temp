@@ -2,10 +2,20 @@ name: this is a github action
 run-name: This is the run name
 on: [push]
 jobs:
-  Echo:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-      - name: cat temp.txt
-        run: cat temp.txt
+      - name: test
+        run: sleep 1m && echo test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: sleep 2m && echo build
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: sleep 3m && echo deploy
